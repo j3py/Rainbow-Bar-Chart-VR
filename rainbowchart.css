@@ -54,3 +54,7 @@ div.tooltip {
     border-radius: 50px;			
     pointer-events: none;			
 }
+
+.axis--x {
+  z-index: 10;
+}

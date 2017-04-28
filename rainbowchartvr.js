@@ -41,32 +41,19 @@ window.addEventListener("DOMContentLoaded", function () {
     x.domain(data.map(function(d) { return d.language; }));
 
     /* set the beginning of your log scale if you need to */
-    y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+    y.domain([700, d3.max(data, function(d) { return d.frequency; })]);
     /* ************************************************** */
 
+//    var plane = d3.select("a-plane")
     scene.append("a-plane")
       .attr("class", "axis axis--x")
       .attr("rotation", "-90 0 0")
-      .attr("height", height)
-      .attr("width", 20)
-      .attr("position", "0 0.5 -6")
-      .attr("color", "black")
+      .attr("depth", 1)
+      .attr("height", 200)
+      .attr("width", 200)
+      .attr("position", "0 -0.01 -6")
+      .attr("material","color: #FFFFFF; roughness: 0; metalness: 1;")
       .call(d3.axisBottom(x));
-
-    scene.append("a-plane")
-      .attr("class", "axis axis--y")
-      .attr("rotation", "0 -90 0")
-      .attr("height", height)
-      .attr("width", 2)
-      .attr("position", "-2 0.5 -6")
-      .attr("color", "black")
-      .call(d3.axisLeft(y).ticks(10, ''))
-      .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Frequency");
 
     scene.selectAll(".bar")
       .data(data)
@@ -76,7 +63,7 @@ window.addEventListener("DOMContentLoaded", function () {
       .attr("y", function(d) { return y(d.frequency); })
       .attr("depth", 1)
       .attr("width", 1)
-      .attr("height", function(d) { return d.frequency/100.0; });
+      .attr("height", function(d) { return y(d.frequency); });
 
     var bars = d3.selectAll(".bar");
     var count = 0;
@@ -102,6 +89,14 @@ window.addEventListener("DOMContentLoaded", function () {
           self.transition()
             .delay(i*150)
             .attr("color", colors[count])
+            .attr("width", 1.5)
+            .attr("depth", 1.5)
+            .duration(150)
+            .ease(d3.easeLinear)
+            .transition()
+//            .delay(i*150)
+            .attr("width", 1)
+            .attr("depth", 1)
             .duration(150)
             .ease(d3.easeLinear);
       });
