@@ -16,10 +16,6 @@ AFRAME.registerComponent('cursor-listener', {
         .style("left", 51 + "%")		
         .style("top", 40 + "%")
         .style('color', color);	
-      console.log('I was clicked at: ', self.attr("height"));
-      console.log('I was clicked at: ', self.attr("x"));
-      console.log('I was clicked at: ', this.getAttribute("height"));
-      console.log('I was clicked at: ', self);
     });
 
     this.el.addEventListener('mouseleave', function (evt) {
