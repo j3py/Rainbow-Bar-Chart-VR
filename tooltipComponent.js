@@ -1,19 +1,18 @@
-// Define the div for the tooltip via d3
-var tip = d3.select("#ttip")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
-// Component to show/hide tooltip via aframe
+// Get divs for the tooltip
+var tip = d3.select("#ttip");
+var tipcont = document.getElementById("tipcontent");
+// Register new component to show/hide tooltip via aframe
 AFRAME.registerComponent('cursor-listener', {
   init: function () {
     this.el.addEventListener('mouseenter', function (evt) {
       let self = d3.select(this);
       let color = self.style('fill');
       self.style('opacity', 0.45);
+      tipcont.textContent = self.attr("data-x") + ":\r\n"  + self.attr("data-y") + " bytes";
       tip.transition()		
         .duration(200)		
-        .style("opacity", 1.0);		
-      tip.html("<div style='margin-top:20px;'>" + self.attr("data-x") + ":<br/>"  + self.attr("data-y") + " bytes </div>")	
-        .style("left", 51 + "%")		
+        .style("opacity", 1.0);
+      tip.style("left", 51 + "%")		
         .style("top", 40 + "%")
         .style('color', color);	
     });
