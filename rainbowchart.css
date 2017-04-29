@@ -45,16 +45,12 @@ body {
 div.tooltip {	
     position: absolute;			
     text-align: center;
-    width: 37px;					
-    height: 37px;					
-    padding: 3%;				
+    width: 73px;					
+    height: 73px;									
     font: 12px sans-serif;		
-    background: #606060;	
-    border: 0px;		
-    border-radius: 50px;			
-    pointer-events: none;			
+    background: #606060;		
+    border-radius: 50px;
+    pointer-events: none;	
+    z-index: 10;
 }
 
-.axis--x {
-  z-index: 10;
-}

@@ -15,9 +15,18 @@
     <div class="button">
       <a id="toggle" class="regPad btnColors">Turn color wave off</a>
     </div>
+    <div id="ttip"></div>
     <a-scene>
       <a-sky color="#606060"></a-sky>
+      <a-entity camera="userHeight: 1.6" look-controls>
+        <a-entity cursor="fuse: true; fuseTimeout: 500"
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                  material="color: black; shader: flat">
+        </a-entity>
+      </a-entity>
     </a-scene>
+    <script src="tooltipComponent.js"></script>
     <script src="rainbowchartvr.js"></script>
   </body>
 </html>
