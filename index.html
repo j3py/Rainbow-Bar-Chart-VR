@@ -15,9 +15,11 @@
     <div class="button">
       <a id="toggle" class="regPad btnColors">Turn color wave off</a>
     </div>
+<!--
     <div id="ttip">
-      <div id="tipcontent"></div>
+      
     </div>
+-->
     <a-scene>
       <a-sky color="#282829"></a-sky>
       <a-entity camera="userHeight: 1.6" look-controls>
@@ -26,6 +28,20 @@
                   geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
                   material="color: #606060; shader: flat">
         </a-entity>
+        <a-circle id="ttip"
+                cursor="fuse: true; fuseTimeout: 500"
+                position="0.5 0.5 -1"
+                radius="0.25"
+                color="#606060"
+                opacity="0.0"
+                shader="flat">
+          <a-text id="tipcontent"
+                  align="center"
+                  height="0.01"
+                  opacity="0.0"
+                  value="Language">
+          </a-text>
+        </a-circle>
       </a-entity>
     </a-scene>
     <script src="tooltipComponent.js"></script>

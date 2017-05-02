@@ -76,26 +76,26 @@ window.addEventListener("DOMContentLoaded", function () {
       }
 
       bars.each(function(d, i) {
-          var self = d3.select(this);
-          self.attr("position", {
-            "x": i * 2 - 5,
-            "y": 0,
-            "z": -8
-          })
-          self.transition()
-            .delay(i*150)
-            .attr("color", colors[count])
-            .attr("width", 1.5)
-            .attr("depth", 1.5)
-            .duration(150)
-            .ease(d3.easeLinear)
-            .transition()
-            .attr("width", 1)
-            .attr("depth", 1)
-            .duration(150)
-            .ease(d3.easeLinear);
-        
-          this.setAttribute("cursor-listener", "");
+        var self = d3.select(this);
+        self.attr("position", {
+          "x": i * 2 - 5,
+          "y": 0,
+          "z": -8
+        })
+        self.transition()
+          .delay(i*150)
+          .attr("color", colors[count])
+          .attr("width", 1.5)
+          .attr("depth", 1.5)
+          .duration(150)
+          .ease(d3.easeLinear)
+          .transition()
+          .attr("width", 1)
+          .attr("depth", 1)
+          .duration(150)
+          .ease(d3.easeLinear);
+
+        this.setAttribute("cursor-listener", "");
       });
 
       count++;
