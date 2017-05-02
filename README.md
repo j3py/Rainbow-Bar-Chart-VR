@@ -1,7 +1,9 @@
 Rainbow Chart VR
 =========================
 
-[This is a work-in-progress] (https://bl.ocks.org/j3py/67bccc27426451b2ab17a882ada0d605)
+[This is a work-in-progress](https://bl.ocks.org/j3py/67bccc27426451b2ab17a882ada0d605)
+
+Note: Github limits requests to their APIs and I don't have a reliable error alert in the VR context yet.
 
 
 ToDo
@@ -10,9 +12,10 @@ ToDo
 Currently this solution is not very useful.
 Here are some things I need to do to correct that:
 - Make bar height and actual data value accurate
-- redo toggle button for color wave in VR
+- Redo toggle button for color wave in VR
 - Correct tool tip font size
 - Debug possible memory leak
+- Increase error visibility by showing the API limit alert within the VR context.
 - Allow movement (eg, forward, backward, side to side, etc)
 - Floor plane should vary in size dynamically according to number of bars
 
