@@ -1,7 +1,7 @@
 Rainbow Chart VR
 =========================
 
-This is a work-in-progress
+[This is a work-in-progress] (https://bl.ocks.org/j3py/67bccc27426451b2ab17a882ada0d605)
 
 
 ToDo
@@ -10,7 +10,8 @@ ToDo
 Currently this solution is not very useful.
 Here are some things I need to do to correct that:
 - Make bar height and actual data value accurate
-- Correct tool tip location when in VR mode
+- redo toggle button for color wave in VR
+- Correct tool tip font size
 - Debug possible memory leak
 - Allow movement (eg, forward, backward, side to side, etc)
 - Floor plane should vary in size dynamically according to number of bars
@@ -32,7 +33,9 @@ I tried using Mirror.js to create a mirrored floor plane for even more awesome d
 
 You may have noticed that the bar heights seem inversely proportional to the actual values...  haven't looked into that bug yet, but it's high on my priority list.
 
-The tool tip doesn't appear in the proper location when in VR mode.
+There used to be a regular old html/css button that allowed the user to toggle the color wave on and off.  I need to re-implement it in AFrame for VR.
+
+The tool tip font size is crazy.
 
 Sometimes when I leave browser tab open for a while and come back to it I find it has froze and takes a few seconds to start working again...  I haven't looked into it yet, but it's second on my priority list.
 

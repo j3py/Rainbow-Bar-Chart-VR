@@ -12,16 +12,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
   </head>
   <body>
-    <div class="button">
-      <a id="toggle" class="regPad btnColors">Turn color wave off</a>
-    </div>
-<!--
-    <div id="ttip">
-      
-    </div>
--->
     <a-scene>
       <a-sky color="#282829"></a-sky>
+      <a-plane id="button"
+               class="button"
+               position="-1 0.01 -5"
+               rotation="-90 0 0"
+               color="#606060"
+               width="4"
+               height="1.0"
+               depth="1">
+        <a-text id="toggle"
+                class="regPad btnColors"
+                align="center"
+                height="1.0"
+                opacity="1.0"
+                value="Turn off">
+        </a-text>
+      </a-plane>
       <a-entity camera="userHeight: 1.6" look-controls>
         <a-entity cursor="fuse: true; fuseTimeout: 500"
                   position="0 0 -1"
