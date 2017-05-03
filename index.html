@@ -10,26 +10,30 @@
     <link rel="stylesheet" href="./rainbowchart.css">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
+    <script src="rainbowchartvr.js"></script>
+    <script src="afComponents.js"></script>
   </head>
   <body>
     <a-scene>
       <a-sky color="#282829"></a-sky>
-      <a-plane id="button"
-               class="button"
-               position="-1 0.01 -5"
-               rotation="-90 0 0"
-               color="#606060"
-               width="4"
-               height="1.0"
-               depth="1">
+      <a-box id="button"
+             class="button"
+             position="-1.0 0.01 -5.0"
+             rotation="-90 0 0"
+             color="#606060"
+             width="4"
+             height="1.0"
+             depth="0.1"
+             toggle-listener>
         <a-text id="toggle"
                 class="regPad btnColors"
                 align="center"
                 height="1.0"
+                position="0.0 0.0 0.0"
                 opacity="1.0"
                 value="Turn off">
         </a-text>
-      </a-plane>
+      </a-box>
       <a-entity camera="userHeight: 1.6" look-controls>
         <a-entity cursor="fuse: true; fuseTimeout: 500"
                   position="0 0 -1"
@@ -38,8 +42,8 @@
         </a-entity>
         <a-circle id="ttip"
                 cursor="fuse: true; fuseTimeout: 500"
-                position="0.5 0.5 -1"
-                radius="0.25"
+                position="0.5 0.5 -1.0"
+                radius="0.175"
                 color="#606060"
                 opacity="0.0"
                 shader="flat">
@@ -47,12 +51,11 @@
                   align="center"
                   height="0.01"
                   opacity="0.0"
+                  width="1.3"
                   value="Language">
           </a-text>
         </a-circle>
       </a-entity>
     </a-scene>
-    <script src="tooltipComponent.js"></script>
-    <script src="rainbowchartvr.js"></script>
   </body>
 </html>

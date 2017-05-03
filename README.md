@@ -12,8 +12,7 @@ ToDo
 Currently this solution is not very useful.
 Here are some things I need to do to correct that:
 - Make bar height and actual data value accurate
-- Redo toggle button for color wave in VR
-- Correct tool tip font size
+- Redo toggle button for color wave in VR (mostly done)
 - Debug possible memory leak
 - Increase error visibility by showing the API limit alert within the VR context.
 - Allow movement (eg, forward, backward, side to side, etc)
@@ -36,9 +35,7 @@ I tried using Mirror.js to create a mirrored floor plane for even more awesome d
 
 You may have noticed that the bar heights seem inversely proportional to the actual values...  haven't looked into that bug yet, but it's high on my priority list.
 
-There used to be a regular old html/css button that allowed the user to toggle the color wave on and off.  I need to re-implement it in AFrame for VR.
-
-The tool tip font size is crazy.
+There used to be a regular old html/css button that allowed the user to toggle the color wave on and off.  This is functional now as a VR button (clickable box), but it needs more styling.
 
 Sometimes when I leave browser tab open for a while and come back to it I find it has froze and takes a few seconds to start working again...  I haven't looked into it yet, but it's second on my priority list.
 
