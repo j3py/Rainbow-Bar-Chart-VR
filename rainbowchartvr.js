@@ -38,7 +38,7 @@ var grapher = function(rawData) {
   x.domain(data.map(function(d) { return d.language; }));
 
   /* set the beginning of your log scale if you need to */
-  y.domain([700, d3.max(data, function(d) { return d.frequency; })]);
+  y.domain([750, d3.max(data, function(d) { return d.frequency; })]);
   /* ************************************************** */
 
   scene.append("a-plane")
@@ -49,7 +49,7 @@ var grapher = function(rawData) {
     .attr("width", 200)
     .attr("position", "0 -0.01 -6")
     .attr("material","color: #FFFFFF; roughness: 0; metalness: 1;")
-    .call(d3.axisBottom(x));
+//    .call(d3.axisBottom(x));  // this calls the d3 axis labels
 
   scene.selectAll(".bar")
     .data(data)
@@ -60,10 +60,19 @@ var grapher = function(rawData) {
     .attr("data-x", function(d) { return d.language })
     .attr("data-y", function(d) { return d.frequency })
     .attr("depth", 1)
-    .attr("width", 1)
-    .attr("height", function(d) { return y(d.frequency); });
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.frequency); });
 
   var bars = d3.selectAll(".bar");
+  bars.each(function(d, i) {
+    this.setAttribute("position", {
+      "x": i * 2 - 5,
+      "y": 0,
+      "z": -8
+    });
+    this.setAttribute("cursor-listener", "");
+  });
+  
   var count = 0;
   var barFun = function() {
     var colors = [
@@ -79,11 +88,6 @@ var grapher = function(rawData) {
 
     bars.each(function(d, i) {
       var self = d3.select(this);
-      self.attr("position", {
-        "x": i * 2 - 5,
-        "y": 0,
-        "z": -8
-      })
       self.transition()
         .delay(i*150)
         .attr("color", colors[count])
@@ -96,8 +100,6 @@ var grapher = function(rawData) {
         .attr("depth", 1)
         .duration(150)
         .ease(d3.easeLinear);
-
-      this.setAttribute("cursor-listener", "");
     });
 
     count++;
